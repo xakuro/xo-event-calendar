@@ -1,0 +1,17 @@
+/*
+Event Content
+*/
+.xo-event-meta {
+	padding: 3.8461% 0;
+}
+
+.xo-event-meta span {
+	display: block;
+}
+
+/*
+Twenty Nineteen theme
+*/
+html[lang="ja"] .xo-event-calendar .dashicons {
+	font-family: dashicons !important;
+}

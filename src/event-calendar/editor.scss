@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// https://github.com/WordPress/gutenberg/issues/27166
+.wp-core-ui .components-select-control select[multiple] {
+	height: auto;
+	padding: 8px;
+
+	+ .components-input-control__suffix {
+		display: none;
+	}
+}
+
+.editor-styles-wrapper .xo-event-calendar {
+	// for the Asrkhe theme.
+	th, td {
+		padding: 0 !important;
+	}
+}

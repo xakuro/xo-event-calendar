@@ -1,0 +1,22 @@
+{
+	"name": "xo-event-calendar",
+	"version": "2.4.0",
+	"description": "XO Event Calendar is a simple event calendar plugin.",
+	"author": "Xakuro",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start",
+		"po2json": "po2json -f jed -d xo-event-calendar languages/xo-event-calendar-ja.po languages/xo-event-calendar-ja-xo-event-calendar-event-calendar-editor-script.json"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^23.6.0",
+		"po2json": "^1.0.0-beta-3"
+	}
+}

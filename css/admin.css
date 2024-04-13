@@ -1,0 +1,214 @@
+/*
+Event post page
+*/
+#xo-event-meta-box select {
+	vertical-align: top;
+}
+
+#xo-event-meta-box table {
+	width: 100%;
+}
+
+#xo-event-meta-box table th {
+	padding: 7px .75rem 7px 0;
+	font-weight: normal;
+	text-align: left;
+}
+
+#xo-event-meta-box table td {
+	padding: 2px 0;
+}
+
+/*
+Holiday setting page
+*/
+#xo-event-holiday-setting {
+	min-width: 320px;
+}
+
+#xo-event-name,
+#xo-event-holiday-setting {
+	border: 1px solid #E5E5E5;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+#xo-event-name {
+	margin: 10px 0;
+	padding: 10px;
+	overflow: hidden;
+	background: #fbfbfb;
+}
+
+#xo-event-name select {
+	float: left;
+	margin-right: 6px;
+}
+
+#xo-event-name .select-name-label {
+	float: left;
+	margin: 5px 6px 0 0;
+}
+
+#xo-event-name .submit-btn {
+	float: left;
+	margin-top: 1px;
+}
+
+#xo-event-name .add-new-name-action {
+	float: left;
+	margin: 6px 0px 0px 6px;
+	line-height: 15px;
+}
+
+#xo-event-holiday-setting {
+	width: 100%;
+	background: #f5f5f5;
+}
+
+#xo-event-holiday-setting .major-publishing-actions {
+	padding: 3px 0 6px;
+	clear: both;
+}
+
+#xo-event-holiday-setting .major-publishing-actions .publishing-action {
+	text-align: right;
+	margin: 4px 0px 1px;
+	float: right;
+	line-height: 23px;
+}
+
+#xo-event-holiday-setting .major-publishing-actions::after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+#xo-event-holiday-setting-header,
+#xo-event-holiday-setting-footer {
+	border-bottom: 1px solid #DFDFDF;
+	margin-bottom: 0;
+	padding: 0 10px;
+}
+
+#xo-event-holiday-setting-header .name-label {
+	display: block;
+	float: left;
+	margin-top: 4px;
+}
+
+#xo-event-holiday-setting-header .name-label span {
+	display: block;
+	float: left;
+	margin-top: 6px;
+	padding-right: 10px;
+}
+
+#xo-event-holiday-setting-header .name-description {
+	display: block;
+	float: left;
+	margin-top: 10px;
+	padding-left: 5px;
+}
+
+#xo-event-holiday-setting-header .name-input {
+	width: 270px;
+}
+
+#xo-event-holiday-setting-footer .delete-action {
+	display: block;
+	float: left;
+	margin: 6px 0;
+	line-height: 15px;
+}
+
+#xo-event-holiday-setting-footer .submitdelete {
+	color: #a00;
+}
+
+#xo-event-holiday-setting-body {
+	padding: 0px 10px 10px;
+	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #DFDFDF;
+	background: #FFF none repeat scroll 0% 0%;
+}
+
+#xo-event-holiday-setting-body input {
+	max-width: 98%;
+}
+
+#xo-event-holiday-setting-body dl {
+	margin: 0 0 10px;
+	overflow: hidden;
+	padding-left: 18%;
+}
+
+#xo-event-holiday-setting-body dt {
+	float: left;
+	clear: both;
+	width: 21.951%;
+	padding: 3px 0 0;
+	margin-left: -21.951%;
+}
+
+#xo-event-holiday-setting-body dd {
+	float: left;
+	margin: 0;
+	width: 100%;
+	margin-top: 4px;
+}
+
+#xo-event-holiday-setting-body dd>label {
+	margin: 0 0.5rem 0 0;
+	padding: 5px 0;
+	vertical-align: baseline;
+	display: inline-block;
+}
+
+@media screen and (max-width: 782px) {
+	#xo-event-holiday-setting-body dl {
+		padding-left: 0;
+	}
+
+	#xo-event-holiday-setting-body dd {
+		float: none;
+		width: 100%;
+		margin-bottom: 15px;
+	}
+
+	#xo-event-holiday-setting-body dt {
+		float: none;
+		width: auto;
+		margin-left: 0;
+		margin-bottom: 15px;
+	}
+}
+
+/*
+Event Category
+*/
+.term-category-color-wrap .wp-picker-input-wrap label {
+	padding: 0;
+}
+
+/*
+Event Calendar Widget
+*/
+.xo-event-cat-checklist {
+	margin: 2px 0 1em;
+	padding: 0 5px;
+	min-height: 42px;
+	max-height: 100px;
+	border: 1px solid #ddd;
+	overflow-y: scroll;
+}
+
+.xo-event-cat-checklist>ul {
+	margin: 5px 0;
+}
+
+#xo_event_holiday span {
+	margin: 0 0.2em 0 0;
+	cursor: move;
+}

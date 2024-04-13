@@ -1,0 +1,85 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "xo-event-calendar/simple-calendar",
+	"title": "Simple Calendar",
+	"category": "widgets",
+	"supports": {
+		"html": false,
+		"align": true,
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
+	},
+	"textdomain": "xo-event-calendar",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"holidays": {
+			"type": "string",
+			"default": ""
+		},
+		"navigation": {
+			"type": "boolean",
+			"default": true
+		},
+		"prevMonths": {
+			"type": "integer",
+			"default": -1
+		},
+		"nextMonths": {
+			"type": "integer",
+			"default": -1
+		},
+		"months": {
+			"type": "integer",
+			"default": 1
+		},
+		"columns": {
+			"type": "integer",
+			"default": 1
+		},
+		"startOfWeek": {
+			"type": "integer",
+			"default": -1
+		},
+		"selectedMonth": {
+			"type": "boolean",
+			"default": false
+		},
+		"year": {
+			"type": "integer",
+			"default": 0
+		},
+		"month": {
+			"type": "integer",
+			"default": 0
+		},
+		"defaultTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"titleFormat": {
+			"type": "string",
+			"default": "F Y"
+		},
+		"localeTranslation": {
+			"type": "boolean",
+			"default": true
+		},
+		"captionTextColor": {
+			"type": "string",
+			"default": ""
+		},
+		"captionBackgroundColor": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"styles": [
+		{ "name": "regular", "label": "Default", "isDefault": true },
+		{ "name": "frame", "label": "Frame" }
+	]
+}

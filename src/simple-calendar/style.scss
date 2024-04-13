@@ -1,0 +1,362 @@
+@charset "UTF-8";
+
+.xo-simple-calendar {
+	font-family: "Helvetica Neue", Helvetica, "Hiragino Kaku Gothic ProN", Meiryo, "MS PGothic", sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	position: relative;
+
+	// for the Asrkhe theme.
+	th, td {
+		padding: 0 !important;
+	}
+
+	.calendar:nth-child(n + 2) {
+		.month-prev,
+		.month-next {
+			visibility: hidden;
+		}
+	}
+
+	.calendar table.month {
+		margin: 0 0 .5em 0;
+		padding: 0;
+		border: 0;
+		outline: 0;
+		box-sizing: border-box;
+		width: 100%;
+		min-width: auto;
+		table-layout: fixed;
+		border-collapse: separate;
+		border-spacing: 1px;
+
+		caption, tbody, tfoot, thead, tr, th, td {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			outline: 0;
+			vertical-align: baseline;
+			background: transparent;
+			opacity: 1;
+		}
+
+		caption {
+			caption-side: top;
+			font-size: 1.1em;
+		}
+
+		.month-header {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			.month-title {
+				padding: 0;
+				font-weight: normal;
+				letter-spacing: .1em;
+				text-align: center;
+				flex-grow: 1;
+				font-size: 1em;
+				line-height: 1em;
+			}
+
+			button {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				background: none;
+				outline-offset: 0;
+				background-color: transparent;
+				font-size: 1.4em;
+				line-height: 1.4em;
+				width: 1.4em;
+			}
+
+			button:not(:hover):not(:active):not(.has-background) {
+				background-color: transparent;
+			}
+
+			button:hover {
+				opacity: .6;
+			}
+
+			button:disabled {
+				opacity: .3;
+				cursor: auto;
+			}
+
+			.month-prev,
+			.month-next {
+				cursor: pointer;
+				color: #333;
+				background-color: transparent;
+			}
+		}
+
+		tr {
+			border: 0;
+			outline: 0;
+			background: transparent;
+		}
+
+		th,
+		td {
+			border: 0;
+			outline: 0;
+			background: transparent;
+			text-align: center;
+			vertical-align: middle;
+			word-break: normal;
+		}
+
+		th {
+			font-size: .8em;
+			font-weight: bold;
+		}
+
+		td {
+			font-size: 1em;
+			font-weight: normal;
+		}
+
+		.day.holiday {
+			color: #333;
+		}
+
+		.day.other {
+			opacity: .3;
+		}
+
+		.day>span {
+			box-sizing: border-box;
+			padding: .2em;
+			display: inline-block;
+			width: 100%;
+		}
+
+		th>span {
+			color: #333;
+		}
+
+		th.sun>span,
+		.day.sun>span {
+			color: #ec0220;
+		}
+
+		th.sat>span,
+		.day.sat>span {
+			color: #0069de;
+		}
+	}
+
+	.calendars-footer {
+		margin: .5em;
+		padding: 0;
+
+		ul.holiday-titles {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			outline: 0;
+			display: inline-flex;
+			flex-wrap: wrap;
+			gap: .25em 1em;
+
+			li {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				outline: 0;
+
+				&::before,
+				&::after {
+					content: none;
+				}
+			}
+
+			.mark {
+				display: inline-block;
+				width: 1.2em;
+				height: 1.2em;
+				border-radius: 50%;
+				vertical-align: middle;
+			}
+
+			.title {
+				font-size: .7em;
+				vertical-align: middle;
+			}
+		}
+	}
+
+	@media (min-width:600px) {
+		.calendars {
+			&.columns-2 {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				column-gap: 15px;
+				row-gap: 5px;
+
+				.month-prev,
+				.month-next {
+					visibility: hidden;
+				}
+
+				.calendar:first-child {
+					.month-prev {
+						visibility: visible;
+					}
+				}
+
+				.calendar:nth-child(2) {
+					.month-next {
+						visibility: visible;
+					}
+				}
+			}
+
+			&.columns-3 {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				column-gap: 15px;
+				row-gap: 5px;
+
+				.month-prev,
+				.month-next {
+					visibility: hidden;
+				}
+
+				.calendar:first-child {
+					.month-prev {
+						visibility: visible;
+					}
+				}
+
+				.calendar:nth-child(3) {
+					.month-next {
+						visibility: visible;
+					}
+				}
+			}
+
+			&.columns-4 {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				column-gap: 15px;
+				row-gap: 5px;
+
+				.month-prev,
+				.month-next {
+					visibility: hidden;
+				}
+
+				.calendar:first-child {
+					.month-prev {
+						visibility: visible;
+					}
+				}
+
+				.calendar:nth-child(4) {
+					.month-next {
+						visibility: visible;
+					}
+				}
+			}
+		}
+	}
+
+	.calendar-loading-animation {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -20px 0 0 -20px;
+	}
+
+	&.xo-calendar-loading {
+		.calendars {
+			opacity: .3;
+		}
+
+		.calendar-loading-animation {
+			width: 40px;
+			height: 40px;
+			border: 5px rgba(0, 0, 0, .2) solid;
+			border-top: 5px #4285f4 solid;
+			border-radius: 50%;
+			-webkit-animation: SimpleCalendarLoadingCircRot .8s infinite linear;
+			animation: SimpleCalendarLoadingCircRot .8s infinite linear;
+		}
+	}
+
+	@-webkit-keyframes SimpleCalendarLoadingCircRot {
+		from {
+			-webkit-transform: rotate(0deg);
+		}
+
+		to {
+			-webkit-transform: rotate(359deg);
+		}
+	}
+
+	@keyframes SimpleCalendarLoadingCircRot {
+		from {
+			transform: rotate(0deg);
+		}
+
+		to {
+			transform: rotate(359deg);
+		}
+	}
+
+	&.is-style-regular {
+		table.month {
+			border-collapse: collapse;
+			border-spacing: 0;
+
+			tr {
+				border: 0;
+			}
+
+			.day>span {
+				padding: .1em;
+				width: 2.2em;
+				line-height: 2em;
+				border-radius: 50%;
+			}
+		}
+	}
+
+	&.is-style-frame {
+		table.month {
+			border-collapse: collapse;
+			border-spacing: 0;
+			background: transparent;
+
+			thead tr {
+				background: #eee;
+			}
+
+			tbody tr {
+				background: #fff;
+			}
+
+			th, td {
+				border: solid 1px #ccc;
+			}
+		}
+
+		.calendars-footer {
+			margin: 8px 0;
+
+			ul.holiday-titles {
+				.mark {
+					border-radius: 0;
+					border: solid 1px #ccc;
+				}
+			}
+		}
+	}
+}

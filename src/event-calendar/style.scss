@@ -1,0 +1,454 @@
+@charset "UTF-8";
+
+.xo-event-calendar {
+	font-family: "Helvetica Neue", Helvetica, "Hiragino Kaku Gothic ProN", Meiryo, "MS PGothic", sans-serif;
+	position: relative;
+	overflow: auto;
+
+	// for the Asrkhe theme.
+	th, td {
+		padding: 0 !important;
+	}
+
+	.calendar:nth-child(n + 2) {
+		.month-prev,
+		.month-next {
+			visibility: hidden;
+		}
+	}
+
+	table {
+		table-layout: fixed;
+		border-collapse: separate;
+		border-spacing: 0;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		background-color: transparent;
+		color: #333;
+
+		caption, tbody, tfoot, thead, tr, th, td {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			outline: 0;
+			vertical-align: baseline;
+			background: transparent;
+			opacity: 1;
+		}
+
+		table tr {
+			display: table-row;
+		}
+
+		table td,
+		table th {
+			display: table-cell;
+			padding: 0;
+		}
+	}
+
+	table.xo-month {
+		margin: 0 0 8px 0;
+		padding: 0;
+		border: 1px solid #ccc;
+		border-width: 1px 0 1px 1px;
+
+		th,
+		td {
+			padding: 0;
+			border: 1px solid #ccc;
+			background-color: #fff;
+		}
+
+		caption {
+			caption-side: top;
+		}
+
+		.month-header {
+			display: flex;
+			flex-flow: wrap;
+			justify-content: center;
+			margin: 4px 0;
+		}
+
+		.month-header>span {
+			flex-grow: 1;
+			text-align: center;
+		}
+
+		button {
+			margin: 0;
+			padding: 0;
+			color: #333;
+			background-color: transparent;
+			border: 0;
+			box-shadow: none;
+			text-shadow: none;
+			cursor: pointer;
+			overflow: hidden;
+			width: 38px;
+		}
+
+		button[disabled] {
+			opacity: 0.3;
+			cursor: default;
+		}
+
+		button>span {
+			text-align: center;
+			vertical-align: middle;
+		}
+
+		button span.nav-prev {
+			display: inline-block;
+			font-size: 0;
+			border-left: 2px solid #333;
+			border-bottom: 2px solid #333;
+			transform: rotate(45deg);
+			width: 13px;
+			height: 13px;
+		}
+
+		button span.nav-next {
+			display: inline-block;
+			font-size: 0;
+			border-top: 2px solid #333;
+			border-right: 2px solid #333;
+			transform: rotate(45deg);
+			width: 13px;
+			height: 13px;
+		}
+
+		button:hover span.nav-prev,
+		button:hover span.nav-next {
+			border-width: 3px;
+		}
+
+		>thead th {
+			border-width: 0 1px 0 0;
+			padding: 1px 0;
+			text-align: center;
+			font-size: .9em;
+			font-weight: bold;
+		}
+
+		>thead th {
+			color: #333;
+		}
+
+		>thead th.sunday {
+			color: #d00;
+		}
+
+		>thead th.saturday {
+			color: #00d;
+		}
+
+		.month-week {
+			position: relative;
+			padding: 0;
+			border: 0;
+			width: 100%;
+			overflow: hidden;
+		}
+
+		.month-week table {
+			border: 0;
+			margin: 0;
+			padding: 0;
+		}
+
+		.month-dayname {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			border-width: 1px 0 0 1px;
+		}
+
+		.month-dayname td {
+			border-width: 1px 1px 0 0;
+			padding: 0;
+		}
+
+		.month-dayname td div {
+			height: 1000px;
+			padding: 4px;
+			border-width: 1px 1px 0 0;
+			text-align: right;
+			font-size: 100%;
+			line-height: 1.2em;
+		}
+
+		.month-dayname td div.other-month {
+			opacity: 0.6;
+		}
+
+		.month-dayname td div.today {
+			color: #00d;
+			font-weight: bold;
+		}
+
+		.month-dayname-space {
+			position: relative;
+			top: 0;
+			height: 1.5em;
+		}
+
+		.month-event {
+			position: relative;
+			top: 0;
+			background-color: transparent;
+		}
+
+		.month-event td {
+			padding: 0 1px 2px 1px;
+			border-width: 0 1px 0 0;
+			background-color: transparent;
+		}
+
+		.month-event-space {
+			height: 1.5em;
+			background-color: transparent;
+		}
+
+		.month-event-space td {
+			border-width: 0 1px 0 0;
+		}
+
+		.month-event tr,
+		.month-event-space tr {
+			background-color: transparent;
+		}
+
+		.month-event-title {
+			margin: 1px;
+			padding: 0 4px;
+			display: block;
+			color: #666;
+			text-align: left;
+			font-size: 0.8em;
+			background-color: #ccc;
+			border-radius: 3px;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+	}
+
+	p.holiday-title {
+		margin: 0;
+		padding: 2px 0;
+		font-size: 90%;
+		vertical-align: middle;
+	}
+
+	p.holiday-title span {
+		margin: 0 6px 0 0;
+		padding: 0 0 0 18px;
+		border: 1px solid #ccc;
+	}
+
+	.loading-animation {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -20px 0 0 -20px;
+	}
+
+	@media (min-width:600px) {
+		.calendars {
+			&.columns-2 {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				column-gap: 15px;
+				row-gap: 5px;
+
+				.month-prev,
+				.month-next {
+					visibility: hidden;
+				}
+
+				.calendar:first-child {
+					.month-prev {
+						visibility: visible;
+					}
+				}
+
+				.calendar:nth-child(2) {
+					.month-next {
+						visibility: visible;
+					}
+				}
+			}
+
+			&.columns-3 {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				column-gap: 15px;
+				row-gap: 5px;
+
+				.month-prev,
+				.month-next {
+					visibility: hidden;
+				}
+
+				.calendar:first-child {
+					.month-prev {
+						visibility: visible;
+					}
+				}
+
+				.calendar:nth-child(3) {
+					.month-next {
+						visibility: visible;
+					}
+				}
+			}
+
+			&.columns-4 {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				column-gap: 15px;
+				row-gap: 5px;
+
+				.month-prev,
+				.month-next {
+					visibility: hidden;
+				}
+
+				.calendar:first-child {
+					.month-prev {
+						visibility: visible;
+					}
+				}
+
+				.calendar:nth-child(4) {
+					.month-next {
+						visibility: visible;
+					}
+				}
+			}
+		}
+	}
+
+	&.xo-calendar-loading {
+		.xo-months {
+			opacity: 0.5;
+		}
+
+		.loading-animation {
+			width: 40px;
+			height: 40px;
+			border: 5px rgba(0, 0, 0, 0.2) solid;
+			border-top: 5px #4285f4 solid;
+			border-radius: 50%;
+			-webkit-animation: loadingCircRot .8s infinite linear;
+			animation: loadingCircRot .8s infinite linear;
+		}
+	}
+
+	@-webkit-keyframes loadingCircRot {
+		from {
+			-webkit-transform: rotate(0deg);
+		}
+
+		to {
+			-webkit-transform: rotate(359deg);
+		}
+	}
+
+	@keyframes loadingCircRot {
+		from {
+			transform: rotate(0deg);
+		}
+
+		to {
+			transform: rotate(359deg);
+		}
+	}
+}
+
+.xo-event-calendar {
+	&.is-style-legacy {
+		table.xo-month {
+			.month-header>span {
+				font-size: 120%;
+				line-height: 28px;
+			}
+		}
+	}
+
+	&.is-style-regular {
+		table.xo-month {
+			button:not(:hover):not(:active):not(.has-background) {
+				color: #333;
+				background-color: transparent;
+			}
+
+			button>span {
+				text-align: center;
+				vertical-align: middle;
+			}
+
+			button>span:not(.dashicons) {
+				font-size: 2em;
+				text-indent: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+
+			.month-prev,
+			.month-next {
+				width: 2em;
+				height: 2em;
+			}
+
+			.month-header {
+				padding: .2em 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				.calendar-caption {
+					flex-grow: 1;
+				}
+			}
+
+			.month-header>span {
+				font-size: 1.1em;
+			}
+
+			>thead th {
+				font-size: .8em;
+				background: #fafafa;
+			}
+
+			.month-dayname td div {
+				padding: 0.2em;
+				font-size: 1em;
+			}
+			.month-dayname td div.today {
+				color: #339;
+				font-weight: bold;
+			}
+		}
+
+		.holiday-titles {
+			display: inline-flex;
+			flex-wrap: wrap;
+			gap: .25em 1em;
+		}
+
+		p.holiday-title {
+			margin: 0 0 .5em 0;
+			font-size: 0.875em;
+		}
+
+		p.holiday-title span {
+			margin: 0 .25em 0 0;
+			padding: 0 0 0 1.25em;
+		}
+	}
+}
